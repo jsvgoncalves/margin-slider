@@ -17,7 +17,7 @@
     <div class="wrapper">
       <header>
         <h1 class="header">MarginSlider</h1>
-        <p class="header">Basic HTML5 slider powered by jQuery.</p>
+        <p class="header">Basic HTML5 slider.</p>
 
         <ul>
           <li class="download"><a class="buttons" href="https://github.com/jsvgoncalves/margin-slider/zipball/master">Download ZIP</a></li>
@@ -32,35 +32,123 @@
       <section>
         <h3>Welcome to MarginSlider</h3>
 
-<p>This is a simple slider built with Javascript and powered by jQuery.
-</p>
+<p>A simple slider built with Javascript and powered by jQuery.</p>
+
+<p>You can customize the slider as long as it stays horizontal and you pass along all the necessary parameters to the <code>init()</code> method. Future versions may support different orientations and make the slider web responsive.</p>
 
 <pre><code>$ git clone https://github.com/jsvgoncalves/margin-slider.git
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h3>Installation</h3>
 
-<h3>Designer Templates</h3>
+<ol>
+<li>Download the code.</li>
+<li>Copy both <code>js/marginslider.js</code> and <code>css/marginslider.css</code> to your project.</li>
+<li>Add classes to your <code>marginslider</code>, <code>marginslider_container</code>, <code>left-arrow</code> and <code>right-arrow</code> appropriately or configure the <code>MarginSlider.init()</code>.</li>
+<li>Call the slider with <code>MarginSlider.init( options );</code> (I recommend only calling it after all the DOM has loaded, you can do so with <code>$(window).load(function(){ .. });</code>.</li>
+<li>That's it!</li>
+</ol><h3>Demo</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>Demo goes here</p>
 
-<h3>Rather Drive Stick?</h3>
+<h3>Configuration</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>Use the following format to pass parameters to MarginSlider:</p>
+
+<div class="highlight"><pre><span class="nx">MarginSlider</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span><span class="nx">slider</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'myslider'</span><span class="p">),</span> 
+                   <span class="nx">no_visible</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+                   <span class="nx">step</span><span class="o">:</span> <span class="mi">2</span>
+                  <span class="p">});</span>
+</pre></div>
+
+<p>To configure your MarginSlider the following parameters are available. Additionally, I encourage you to take a look at the code and tweak it to your liking.</p>
+
+<hr><h4>{ slider_container: $( 'marginslider_container' ) }</h4>
+
+<p>The marginslider container, used to wrap around the slider and create an invisible area. Example:</p>
+
+<div class="highlight"><pre><span class="nx">MarginSlider</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span> <span class="nx">slider_container</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span> <span class="s1">'marginslider_container'</span> <span class="p">)</span> <span class="p">}</span> <span class="p">);</span>
+</pre></div>
+
+<hr><h4>{ slider: $( 'marginslider' ) }</h4>
+
+<p>The container for the slider, this element should have child elements that will contain the images.
+Example:</p>
+
+<div class="highlight"><pre><span class="nx">MarginSlider</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span> <span class="nx">slider</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span> <span class="s1">'myslider'</span> <span class="p">)</span> <span class="p">}</span> <span class="p">);</span>
+</pre></div>
+
+<hr><h4>{ slider_child: $( '.marginslider li' ) }</h4>
+
+<p>The slider_child elements. marginslider should have child elements that will contain the images.
+Example:</p>
+
+<div class="highlight"><pre><span class="nx">MarginSlider</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span> <span class="nx">slider_child</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span> <span class="s1">'.marginslider li'</span> <span class="p">)</span> <span class="p">}</span> <span class="p">);</span>
+</pre></div>
+
+<hr><h4>{ bt_left : $('bt_left') }</h4>
+
+<p>The button to navigate left could be anywhere on the page, it doesnt matter, it can even be the whole page <code>&lt;body&gt;</code>.
+Example: </p>
+
+<div class="highlight"><pre><span class="nx">MarginSlider</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span> <span class="nx">bt_left</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span> <span class="s1">'.left-arrow'</span> <span class="p">)</span> <span class="p">}</span> <span class="p">);</span>
+</pre></div>
+
+<hr><h4>{ bt_right : $('bt_right') }</h4>
+
+<p>The button to navigate right.
+Example: </p>
+
+<div class="highlight"><pre><span class="nx">MarginSlider</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span> <span class="nx">bt_right</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span> <span class="s1">'.right-arrow'</span> <span class="p">)</span> <span class="p">}</span> <span class="p">);</span>
+</pre></div>
+
+<hr><h4>{ no_visible : 5 }</h4>
+
+<p>The number of visible elements, note that if the number of visible elements it's greater than the number of total elements the slider will note move.
+Example: </p>
+
+<div class="highlight"><pre><span class="nx">MarginSlider</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span> <span class="nx">no_visible</span><span class="o">:</span> <span class="mi">5</span> <span class="p">}</span> <span class="p">);</span>
+</pre></div>
+
+<hr><h4>{ step : 3 }</h4>
+
+<p>How many elements to advance each time the user navigates.
+Example: </p>
+
+<div class="highlight"><pre><span class="nx">MarginSlider</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span> <span class="nx">step</span><span class="o">:</span> <span class="mi">3</span> <span class="p">}</span> <span class="p">);</span>
+</pre></div>
+
+<hr><h4>{ img_margin : 15 }</h4>
+
+<p>The spacing between each image on the slider.
+Example: </p>
+
+<div class="highlight"><pre><span class="nx">MarginSlider</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="p">{</span> <span class="nx">img_margin</span> <span class="o">:</span> <span class="mi">15</span> <span class="p">}</span> <span class="p">);</span>
+</pre></div>
 
 <h3>Authors and Contributors</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>This project is maintained by João Gonçalves (<a href="https://github.com/jsvgoncalves" class="user-mention">@jsvgoncalves</a>). Special thanks to Helder Lucas and João Lopes (<a href="https://github.com/lopis" class="user-mention">@lopis</a>).</p>
 
 <h3>Support or Contact</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Having trouble with MarginSlider? Check out the documentation at <a href="https://github.com/jsvgoncalves/margin-slider">https://github.com/jsvgoncalves/margin-slider</a> or open a new issue and I’ll help you sort it out.</p>
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+		          <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-37735894-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
