@@ -1,0 +1,30 @@
+.marginslider_container * {
+	margin: 0;
+	padding: 0;
+}
+
+.marginslider_container {
+	width: 400px; 		/* This value is calculated automatically */
+	overflow: hidden;
+	height: auto;
+	display: none;
+}
+
+.marginslider {
+	list-style: none;
+	overflow: hidden;
+	width: 10000px;		
+}
+
+.marginslider li {
+	float: left;
+	/* You may change margin-left value.
+	 * However there is a config option for it.
+	 */
+	margin-left: 15px;  
+}
+
+.left-arrow, .right-arrow {
+	cursor: pointer;
+	display: none;
+}
