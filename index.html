@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/marginslider.css">
     <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -49,7 +50,21 @@
 <li>That's it!</li>
 </ol><h3>Demo</h3>
 
-<p>Demo goes here</p>
+<div class="marginslider_container">
+    <ul class="marginslider">
+        <li><img src="http://lorempixel.com/125/125/abstract/" alt=""></li>
+        <li><img src="http://lorempixel.com/125/125/nature/" alt=""></li>
+        <li><img src="http://lorempixel.com/125/125/sports/" alt=""></li>
+        <li><img src="http://lorempixel.com/125/125/city/" alt=""></li>
+        <li><img src="http://lorempixel.com/125/125/animals/" alt=""></li>
+        <li><img src="http://lorempixel.com/125/125/food/" alt=""></li>
+        <li><img src="http://lorempixel.com/125/125/transport/" alt=""></li>
+    </ul>
+</div>
+<nav>
+  <button class="left-arrow">Left</button>
+  <button class="right-arrow">Right</button>
+</nav>
 
 <h3>Configuration</h3>
 
@@ -138,6 +153,10 @@ Example: </p>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="javascripts/jquery-1.8.3.min.js"><\/script>')</script>
+        <script src="javascripts/marginslider.js"></script>
+        <script src="javascripts/main.js"></script>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 		          <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
