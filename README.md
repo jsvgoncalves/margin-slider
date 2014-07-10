@@ -1,6 +1,8 @@
 margin-slider
 =============
 
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.10839.png)](http://dx.doi.org/10.5281/zenodo.10839)
+
 Basic HTML5 slider done with margin-left and jQuery animate.
 
 
